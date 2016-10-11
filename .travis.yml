@@ -14,8 +14,5 @@ android:
   - extra-google-google_play_services
 
 script:
-  # Instrument Test
-  # - ./gradlew connectedAndroidTest
   # Unit Test
   - ./gradlew test
-  # - ./gradlew build jacocoTestReportDebug
