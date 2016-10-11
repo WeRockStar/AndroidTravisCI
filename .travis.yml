@@ -1,0 +1,21 @@
+language: android
+jdk: oraclejdk8
+env:
+  matrix:
+    - ANDROID_TARGET=android-24 ANDROID_ABI=x86
+android:
+  components:
+  - platform-tools
+  - tools
+  - build-tools-24.0.3
+  - android-24
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - extra-google-google_play_services
+
+script:
+  # Instrument Test
+  # - ./gradlew connectedAndroidTest
+  # Unit Test
+  - ./gradlew test
+  # - ./gradlew build jacocoTestReportDebug
