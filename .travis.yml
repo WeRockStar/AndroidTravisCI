@@ -1,8 +1,9 @@
 language: android
 jdk: oraclejdk8
 env:
-  matrix:
-    - ANDROID_TARGET=android-24 ANDROID_ABI=x86
+  global:
+  - ANDROID_TARGET=android-15
+  - ANDROID_ABI=armeabi-v7a
 android:
   components:
   - platform-tools
@@ -11,10 +12,18 @@ android:
   - android-24
   - extra-google-m2repository
   - extra-android-m2repository
+  - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
+
+before_script:
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 
 script:
   # Unit Test
-  - ./gradlew build jacocoTestReport
+  - ./gradlew connectedAndroidTest
+  - ./gradlew build jacocoTestReport assembleAndroidTest
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
