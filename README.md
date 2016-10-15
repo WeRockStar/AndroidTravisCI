@@ -1,6 +1,6 @@
 ### Continuous Integration with Travis CI
 
-[![Build Status](https://travis-ci.org/WeRockStar/AndroidTravisCI.svg?branch=master)](https://travis-ci.org/WeRockStar/AndroidTravisCI)
+[![Build Status](https://travis-ci.org/WeRockStar/AndroidTravisCI.svg?branch=master)](https://travis-ci.org/WeRockStar/AndroidTravisCI) [![codecov](https://codecov.io/gh/WeRockStar/AndroidTravisCI/branch/master/graph/badge.svg)](https://codecov.io/gh/WeRockStar/AndroidTravisCI)
 
 ``` yml
 language: android
